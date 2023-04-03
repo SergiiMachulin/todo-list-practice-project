@@ -3,3 +3,23 @@ body {
     padding-left: 20px;
     padding-right: 20px;
 }
+
+.tag-name {
+  color: #aaa;
+}
+
+.time {
+    font-size: 0.9rem;
+}
+
+.done {
+    color: green;
+}
+
+.notdone {
+    color: red;
+}
+
+.deadline {
+    color: darkred;
+}
