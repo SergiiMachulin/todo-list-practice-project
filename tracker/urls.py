@@ -8,7 +8,8 @@ from .views import (
     TagListView,
     TagCreateView,
     TagUpdateView,
-    TagDeleteView, TaskStatusToggleView,
+    TagDeleteView,
+    TaskStatusToggleView,
 )
 
 urlpatterns = [
@@ -44,7 +45,11 @@ urlpatterns = [
         TaskDeleteView.as_view(),
         name="task-delete",
     ),
-    path("<int:pk>/toggle-status/", TaskStatusToggleView.as_view(), name="task-toggle-status"),
+    path(
+        "<int:pk>/toggle-status/",
+        TaskStatusToggleView.as_view(),
+        name="task-toggle-status"
+    ),
 ]
 
 app_name = "tracker"
