@@ -19,9 +19,9 @@
           <p>
             <h5><strong>{{ task.content }}</strong>
             {% if not task.done %}
-              <a href="#" class="btn btn-success btn float-right">Complete</a>
+              <a href="{% url 'tracker:task-toggle-status' pk=task.id %}" class="btn btn-success btn float-right">Complete</a>
             {% else %}
-              <a href="#" class="btn btn-secondary btn float-right">Undo</a>
+              <a href="{% url 'tracker:task-toggle-status' pk=task.id %}" class="btn btn-secondary btn float-right">Undo</a>
             {% endif %}
             <strong>{% if task.done %}<span class="done">Done</span>{% else %}<span class="notdone">Not done</span>{% endif %}</strong>
           </h5>
