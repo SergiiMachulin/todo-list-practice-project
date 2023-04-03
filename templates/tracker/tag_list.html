@@ -7,7 +7,7 @@
     <h1 class="display-4">
       <strong>Tags</strong>
     </h1>
-    <a href="#" class="btn btn-primary link-to-page">
+    <a href="{% url 'tracker:tag-create' %}" class="btn btn-primary link-to-page">
       Add
     </a>
   </div>
@@ -28,12 +28,12 @@
             {{ tag.name }}
           </td>
           <td>
-            <a href="#" type="button" class="btn btn-secondary">
+            <a href="{% url 'tracker:tag-update' pk=tag.id %}" type="button" class="btn btn-secondary">
               Update
             </a>
           </td>
           <td>
-            <a href="#"  type="button" class="btn btn-secondary">
+            <a href="{% url 'tracker:tag-delete' pk=tag.id %}"  type="button" class="btn btn-secondary">
               Delete
             </a>
           </td>

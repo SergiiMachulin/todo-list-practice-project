@@ -6,9 +6,9 @@ from .views import (
     #     TaskUpdateView,
     #     TaskDeleteView,
     TagListView,
-    #     TagCreateView,
-    #     TagUpdateView,
-    #     TagDeleteView,
+    TagCreateView,
+    TagUpdateView,
+    TagDeleteView,
 )
 
 urlpatterns = [
@@ -17,21 +17,21 @@ urlpatterns = [
         TagListView.as_view(),
         name="tag-list",
     ),
-    # path(
-    #     "tags/create/",
-    #     TagCreateView.as_view(),
-    #     name="tag-create",
-    # ),
-    # path(
-    #     "tags/<int:pk>/update/",
-    #     TagUpdateView.as_view(),
-    #     name="tag-update",
-    # ),
-    # path(
-    #     "tags/<int:pk>/delete/",
-    #     TagDeleteView.as_view(),
-    #     name="tag-delete",
-    # ),
+    path(
+        "tags/create/",
+        TagCreateView.as_view(),
+        name="tag-create",
+    ),
+    path(
+        "tags/<int:pk>/update/",
+        TagUpdateView.as_view(),
+        name="tag-update",
+    ),
+    path(
+        "tags/<int:pk>/delete/",
+        TagDeleteView.as_view(),
+        name="tag-delete",
+    ),
     path("", TaskListView.as_view(), name="task-list"),
     # path("/create/", TaskCreateView.as_view(), name="task-create"),
     # path(
