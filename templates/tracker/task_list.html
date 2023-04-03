@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div class="row mb-4">
+    <div class="col">
+      <h1 class="display-4">
+        <strong>TODO list</strong>
+      </h1>
+    </div>
+    <div class="col text-right">
+      <a href="#" class="btn btn-primary link-to-page">
+        Add task
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    {% if task_list %}
+      {% for task in task_list %}
+        <div class="col-md-6">
+          <p>
+            <strong>{{ task.content }}</strong>
+            {% if not task.done %}
+              <a href="#" class="btn btn-success btn-sm float-right">Complete</a>
+            {% else %}
+              <a href="#" class="btn btn-secondary btn-sm float-right">Undo</a>
+            {% endif %}
+            <strong>{% if task.done %}<span style="color:green">Done</span>{% else %}<span style="color:red">Not done</span>{% endif %}</strong>
+          </p>
+          <p>Created: {{ task.created_datetime }}
+            {% if task.done %}
+              <span>Deadline: {{ task.deadline_datetime}}</span>
+            {%  endif %}
+          </p>
+          {% for tag in task.tags.all %}
+            <p>Tags: {{ tag.name }}
+            <a href="#" class="stretched-link">Update</a>
+            <a href="#" class="stretched-link">Delete</a>
+            </p>
+          {% endfor %}
+        </div>
+        <hr>
+      {% endfor %}
+    {% else %}
+      <div class="col">
+        <p>There are no tasks for tracking.</p>
+      </div>
+    {% endif %}
+  </div>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Tags</title>{% endblock %}
+
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="display-4">
+      <strong>Tags</strong>
+    </h1>
+    <a href="#" class="btn btn-primary link-to-page">
+      Add
+    </a>
+  </div>
+
+  {% if tag_list %}
+    <table class="table table-sm table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col" class="title">Name</th>
+          <th scope="col" class="title">Update</th>
+          <th scope="col" class="title">Delete</th>
+        </tr>
+      </thead>
+
+      {% for tag in tag_list %}
+        <tr>
+          <td class="align-items-center">
+            {{ tag.name }}
+          </td>
+          <td>
+            <a href="#" type="button" class="btn btn-secondary">
+              Update
+            </a>
+          </td>
+          <td>
+            <a href="#"  type="button" class="btn btn-secondary">
+              Delete
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+      <p>There are no tags for tracking.</p>
+  {% endif %}
+{% endblock %}
